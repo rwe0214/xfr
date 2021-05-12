@@ -14,6 +14,13 @@ In this paper, we provide the first comprehensive benchmark for explainable face
 * Inpainting game dataset for facial recognition.  We publicly release the inpainting game dataset, algorithms and baseline results to support reproducible research.
 
 
+# Anaconda Quick Start
+```shell
+$ conda env create -f xfr.yml
+$ conda activate xfr
+$ python -m ipykernel install --user --name xfr --display-name "Python (xfr)"
+```
+
 # Installation
 Tested with Python 3.6, PyTorch 1.3.   
 
