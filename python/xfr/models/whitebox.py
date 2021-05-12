@@ -87,7 +87,11 @@ class WhiteboxNetwork(object):
 class WhiteboxSTResnet(WhiteboxNetwork):
     def __init__(self, net):
         """A subclass of WhiteboxNetwork() which implements the whitebox API for a resnet-101 topology"""
-        self.net = net
+        self.net = nn.DataParallel(net, device_ids=[0, 1])
+        if isinstance(self.net, nn.DataParallel):
+            self.net = self.net.module
+
+        self.net = self.net.to(torch.device('cuda'))
         self.net.eval()
 
     def set_triplet_classifier(self, x_mate, x_nonmate):
@@ -274,7 +278,6 @@ class Whitebox(nn.Module):
         super(Whitebox, self).__init__()
         assert(isinstance(net, WhiteboxNetwork))
         self.net = net
-
         self.eps = eps
         self.layerlist = None
         self.ebp_ver = ebp_version
