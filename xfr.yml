@@ -93,6 +93,7 @@ dependencies:
     - torch==1.8.1
     - torchvision==0.9.1
     - tornado==6.1
+    - tqdm==4.60.0
     - traitlets==4.3.3
     - typing-extensions==3.10.0.0
     - vipy==0.8.16
@@ -100,5 +101,4 @@ dependencies:
     - webencodings==0.5.1
     - widgetsnbextension==3.5.1
     - zipp==3.4.1
-prefix: /home/swchiu/.conda/envs/xfr
 
