@@ -122,8 +122,6 @@ def ReturnComparison(imgVec, attMaps,
         attMapV = np.delete(attMapV, 3, 2) #Colormap
         if overlap:
             attMap = 1 * (1 - attMap ** gamma).reshape(attMap.shape + (1,)) * img + (attMap ** gamma).reshape(attMap.shape + (1,)) * attMapV;
-        else:
-            attMap = (attMap ** gamma).reshape(attMap.shape + (1,)) * attMapV
         if suppressMap[i]==0:
             outMaps.append(attMap)
         else:
